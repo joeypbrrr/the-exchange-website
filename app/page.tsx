@@ -1,47 +1,65 @@
-import { ExpandHits } from "@/components/expand-hits";
 import { asset } from "@/lib/base-path";
-import { hitLimits, posterControls, posterHeight, posterWidth, sectionAnchors } from "@/lib/poster-map";
+
+const INSTAGRAM = "https://www.instagram.com/the.exchange610/";
 
 export default function HomePage() {
   return (
-    <main id="top" className="poster" style={{ maxWidth: posterWidth }}>
-      <h1 className="sr-only">The Exchange. Buy, sell, trade.</h1>
-      <img
-        className="poster-art"
-        src={asset("/the-exchange-final-no-beams-no-badges.jpg")}
-        width={posterWidth}
-        height={posterHeight}
-        alt="The Exchange. Buy, sell, trade. Gold, phones, sneakers, and electronics in Reading, Pennsylvania. Message @the.exchange610 on Instagram."
-      />
-      {sectionAnchors.map((anchor) => (
-        <div key={anchor.id} id={anchor.id} className="section-anchor" style={{ top: `${anchor.y}%` }} />
-      ))}
-      {posterControls.map((control) => (
-        <a
-          key={control.id}
-          id={control.id}
-          className="hit"
-          data-hit=""
-          data-x={control.x}
-          data-y={control.y}
-          data-w={control.w}
-          data-h={control.h}
-          data-l={hitLimits[control.id].l}
-          data-t={hitLimits[control.id].t}
-          data-r={hitLimits[control.id].r}
-          data-b={hitLimits[control.id].b}
-          href={control.href}
-          aria-label={control.label}
-          style={{
-            left: `${control.x}%`,
-            top: `${control.y}%`,
-            width: `${control.w}%`,
-            height: `${control.h}%`,
-          }}
-          {...(control.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+    <div className="page" id="top">
+      <header className="bar">
+        <a className="logo-link" href="#top">
+          <img src={asset("/art/logo.png")} alt="The Exchange. Buy, sell, trade." />
+        </a>
+        <nav aria-label="Page">
+          <a href="#buy">What we buy</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main>
+        <h1 className="sr-only">The Exchange. Buy, sell, trade.</h1>
+        <img
+          className="slice"
+          src={asset("/art/hero.png")}
+          alt="The Exchange. Buy, sell, trade. A phone, a sneaker, and gold. Got stuff? Get paid."
         />
-      ))}
-      <ExpandHits />
-    </main>
+        <div className="actions">
+          <a className="btn primary" href={INSTAGRAM}>
+            Message on Instagram
+          </a>
+          <a className="btn ghost" href="#buy">
+            What we buy
+          </a>
+        </div>
+
+        <section id="buy">
+          <h2 className="sr-only">What we buy</h2>
+          <img
+            className="slice"
+            src={asset("/art/buy.png")}
+            alt="What we buy: gold, phones, sneakers, and electronics."
+          />
+        </section>
+
+        <section id="contact" className="band">
+          <p>IN WITH STUFF. OUT WITH CASH.</p>
+          <a className="btn primary stack" href={INSTAGRAM}>
+            <strong>Message @the.exchange610</strong>
+            <span>Reading, Pennsylvania</span>
+          </a>
+        </section>
+
+        <footer>
+          <a className="logo-link" href="#top">
+            <img src={asset("/art/logo.png")} alt="" />
+          </a>
+          <p>
+            <a href={INSTAGRAM}>@the.exchange610</a>
+            <br />
+            Reading, Pennsylvania
+          </p>
+          <img className="pending" src={asset("/art/pending.png")} alt="Street address pending verification" />
+        </footer>
+      </main>
+    </div>
   );
 }

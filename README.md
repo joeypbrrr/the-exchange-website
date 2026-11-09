@@ -2,7 +2,7 @@
 
 Website for the Reading, Pennsylvania buyer on Instagram at [@the.exchange610](https://www.instagram.com/the.exchange610/).
 
-The public page is the approved homepage artwork, shown at its real aspect ratio. Navigation and buttons are transparent HTML controls placed on that still image. It is not a live 3D scene.
+The page uses the approved artwork. Header, buttons, and the Instagram link are real HTML controls. It is a still image layout, not a 3D scene.
 
 ## Static export
 
@@ -15,4 +15,4 @@ npm run build
 
 https://joeypbrrr.github.io/the-exchange-website/
 
-Contact on the page is Instagram @the.exchange610. No street address and no phone number were added outside the artwork.
+Contact is Instagram @the.exchange610. No street address and no phone number were added.
